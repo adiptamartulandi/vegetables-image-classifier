@@ -21,19 +21,10 @@ env/
 .ipynb_checkpoints
 
 # Model checkpoints and logs
-checkpoints/
 logs/
 
 # Local development settings
 .env
-
-# Dataset
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
-*.JPG
 
 # System files
 .DS_Store
