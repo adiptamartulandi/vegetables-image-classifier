@@ -1,6 +1,6 @@
 # Vegetable Image Classifier
 
-A PyTorch-based CNN classifier for distinguishing between 2 types (In the future will be add new types) of vegetables: Daun Bawang (Green Onion) and Seledri (Celery).
+A PyTorch-based CNN classifier for distinguishing between 2 types (In the future will be add new types) of vegetables: Daun Bawang and Seledri.
 
 ## Project Structure
 
