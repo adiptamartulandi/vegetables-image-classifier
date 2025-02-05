@@ -1,6 +1,6 @@
 # Vegetable Image Classifier
 
-A PyTorch-based CNN classifier for distinguishing between 2 types (In the future will be add new types) of vegetables: Daun Bawang and Seledri.
+A PyTorch-based CNN classifier for distinguishing between 2 types (In the future will be add new types) of vegetables: Daun Bawang and Seledri. You can deploy as an API using FastAPI or Web Apps using Streamlit
 
 ## Project Structure
 
@@ -85,3 +85,13 @@ The CNN architecture consists of:
 - Max pooling layers for spatial reduction
 - Dropouts for regularization
 - Fully connected layers for classification
+
+## Streamlit Web Interface
+
+To start the Streamlit web interface:
+
+```bash
+streamlit run src/streamlit_app.py
+```
+
+The web interface will be available at `http://localhost:8501`.
