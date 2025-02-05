@@ -1,5 +1,5 @@
 torch
-torchvision==0.16.0
+torchvision
 Pillow==10.1.0
 numpy==1.26.2
 pandas==2.1.3
