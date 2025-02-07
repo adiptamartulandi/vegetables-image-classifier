@@ -8,6 +8,10 @@ dist/
 build/
 *.egg-info/
 
+# Include model checkpoints for deployment
+!checkpoints/
+!checkpoints/*.pth
+
 # Virtual environments
 venv/
 env/

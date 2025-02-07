@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import torch
 import numpy as np
@@ -33,7 +34,11 @@ st.markdown("""
 def load_model():
     device = 'cpu'
     model = create_model(num_classes=6, device=device)
-    checkpoint = torch.load('checkpoints/best_checkpoint.pth', map_location=device)
+    checkpoint_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'checkpoints', 'best_checkpoint.pth')
+    if not os.path.exists(checkpoint_path):
+        st.error(f"Model checkpoint not found at {checkpoint_path}. Please ensure the model file is uploaded.")
+        st.stop()
+    checkpoint = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     return model, device
