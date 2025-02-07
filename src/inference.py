@@ -15,13 +15,13 @@ app = FastAPI(title="Vegetable Classifier API")
 
 # Load model
 device = 'cpu'
-model = create_model(num_classes=2, device=device)
+model = create_model(num_classes=6, device=device)
 checkpoint = torch.load('checkpoints/best_checkpoint.pth', map_location=device)
 model.load_state_dict(checkpoint['model_state_dict'])
 model.eval()
 
 # Class mapping
-class_names = ['daun_bawang', 'seledri']
+class_names = ['daun_bawang', 'seledri', 'jahe', 'lengkuas', 'kunyit', 'kencur']
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)) -> Dict[str, str]:

@@ -1,6 +1,12 @@
 # Vegetable Image Classifier
 
-A PyTorch-based CNN classifier for distinguishing between 2 types (In the future will be add new types) of vegetables: Daun Bawang and Seledri. You can deploy as an API using FastAPI or Web Apps using Streamlit
+A deep learning model for classifying 6 types of Indonesian vegetables and spices:
+- Daun Bawang (Scallion)
+- Seledri (Celery)
+- Jahe (Ginger)
+- Lengkuas (Galangal)
+- Kunyit (Turmeric)
+- Kencur (Lesser Galangal)
 
 ## Project Structure
 
@@ -8,7 +14,11 @@ A PyTorch-based CNN classifier for distinguishing between 2 types (In the future
 .
 ├── data/
 │   ├── daun_bawang/
-│   └── seledri/
+│   ├── seledri/
+│   ├── jahe/
+│   ├── lengkuas/
+│   ├── kunyit/
+│   └── kencur/
 ├── src/
 │   ├── data/
 │   │   ├── __init__.py
@@ -21,29 +31,10 @@ A PyTorch-based CNN classifier for distinguishing between 2 types (In the future
 │   │   └── trainer.py
 │   ├── __init__.py
 │   ├── train.py
-│   └── inference.py
+│   ├── inference.py
+│   └── streamlit_app.py
 ├── requirements.txt
 └── README.md
-```
-## Dataset
-
-The dataset contains two classes of vegetable images that acquire by using SerpApi [here](https://github.com/adiptamartulandi/google-image-scraper):
-- Daun Bawang (Green Onion)
-- Seledri (Celery)
-
-Data augmentation techniques are applied during training to improve model generalization.
-
-## Setup
-
-1. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-```
-
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
 ```
 
 ## Training
@@ -54,14 +45,27 @@ To train the model:
 python src/train.py
 ```
 
+The model is trained with the following configuration:
+- Batch size: 32
+- Learning rate: 0.001
+- Number of epochs: 30
+- Training/validation split: 80/20
+
 The trained model will be saved in the `checkpoints` directory.
 
-Best Models in epoch 7 with:
-- train accuracy 77.30%
-- val accuracy 80.56%
+Best model performance achieved:
+- Training accuracy: 73.54%
+- Validation accuracy: 75.73%
 
-## Inference API
+## Inference
 
+The model can be used for inference through either:
+1. FastAPI endpoint (`inference.py`)
+2. Streamlit web interface (`streamlit_app.py`)
+
+Both methods load the best checkpoint and provide predictions for the 6 vegetable categories.
+
+```
 To start the FastAPI server:
 
 ```bash

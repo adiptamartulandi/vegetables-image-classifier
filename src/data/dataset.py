@@ -17,7 +17,7 @@ class VegetableDataset(Dataset):
     def __init__(self, root_dir: str, transform=None):
         self.root_dir = root_dir
         self.transform = transform
-        self.classes = ['daun_bawang', 'seledri']
+        self.classes = ['daun_bawang', 'seledri', 'jahe', 'lengkuas', 'kunyit', 'kencur']
         self.class_to_idx = {cls: idx for idx, cls in enumerate(self.classes)}
         self.samples = self._load_samples()
 

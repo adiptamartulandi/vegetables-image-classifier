@@ -26,7 +26,7 @@ def main():
     )
     
     # Create model, loss function, and optimizer
-    model = create_model(num_classes=2, device=device)
+    model = create_model(num_classes=6, device=device)  # Updated to 6 classes
     criterion = nn.CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr=learning_rate)
     

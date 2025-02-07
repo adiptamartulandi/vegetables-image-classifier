@@ -60,6 +60,8 @@ class Trainer:
         total_loss = 0
         correct = 0
         total = 0
+        all_labels = []
+        all_predictions = []
         
         pbar = tqdm(val_loader, desc='Evaluating')
         for images, labels in pbar:
@@ -72,10 +74,16 @@ class Trainer:
             _, predicted = outputs.max(1)
             total += labels.size(0)
             correct += predicted.eq(labels).sum().item()
+            
+            # Store labels and predictions for confusion matrix
+            all_labels.extend(labels.cpu().numpy())
+            all_predictions.extend(predicted.cpu().numpy())
         
         return {
             'loss': total_loss/len(val_loader),
-            'accuracy': 100.*correct/total
+            'accuracy': 100.*correct/total,
+            'true_labels': all_labels,
+            'pred_labels': all_predictions
         }
     
     def save_checkpoint(

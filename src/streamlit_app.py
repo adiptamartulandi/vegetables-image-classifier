@@ -17,22 +17,29 @@ st.set_page_config(
 # Title and description
 st.title("Vegetable Image Classifier")
 st.markdown("""
-    Upload an image of either a green onion (daun bawang) or celery (seledri) 
-    to get the classification result.
+    Upload an image of any of these vegetables:
+    - Green Onion (Daun Bawang)
+    - Celery (Seledri)
+    - Ginger (Jahe)
+    - Galangal (Lengkuas)
+    - Turmeric (Kunyit)
+    - Lesser Galangal (Kencur)
+    
+    The model will classify your image and show the prediction result.
 """)
 
 # Load model
 @st.cache_resource
 def load_model():
     device = 'cpu'
-    model = create_model(num_classes=2, device=device)
+    model = create_model(num_classes=6, device=device)
     checkpoint = torch.load('checkpoints/best_checkpoint.pth', map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     return model, device
 
 # Class mapping
-class_names = ['daun_bawang', 'seledri']
+class_names = ['daun_bawang', 'seledri', 'jahe', 'lengkuas', 'kunyit', 'kencur']
 
 # Load the model
 model, device = load_model()
