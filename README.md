@@ -99,3 +99,7 @@ streamlit run src/streamlit_app.py
 ```
 
 The web interface will be available at `http://localhost:8501`.
+
+## Streamlit Community Cloud
+
+ You can access here `https://vegetables-image-classifier.streamlit.app/`
