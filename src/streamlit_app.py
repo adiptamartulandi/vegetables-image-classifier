@@ -38,7 +38,7 @@ def load_model():
     if not os.path.exists(checkpoint_path):
         st.error(f"Model checkpoint not found at {checkpoint_path}. Please ensure the model file is uploaded.")
         st.stop()
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     return model, device
