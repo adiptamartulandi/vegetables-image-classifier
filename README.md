@@ -1,6 +1,6 @@
 # Vegetable Image Classifier
 
-A deep learning model for classifying 6 types of Indonesian vegetables and spices:
+A deep learning model for classifying 6 types of Indonesian vegetables:
 - Daun Bawang (Scallion)
 - Seledri (Celery)
 - Jahe (Ginger)
